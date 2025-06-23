@@ -1,20 +1,27 @@
-self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open('medihike-store').then(function(cache) {
-      return cache.addAll([
-        '/',
-        '/index.html',
-        '/manifest.json',
-        '/style.css'
-      ]);
-    })
+const CACHE_NAME = 'medihike-cache-v1';
+const urlsToCache = [
+  '/',
+  '/core-kit.html',
+  '/kit-zugspitze.html',
+  '/kit-saxon.html',
+  '/kit-eibsee.html',
+  '/style.css',
+  '/manifest.json',
+  '/assets/cpr-beat.mp3',
+  '/assets/icon-192.png',
+  '/assets/icon-512.png'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(urlsToCache))
   );
 });
 
-self.addEventListener('fetch', function(e) {
-  e.respondWith(
-    caches.match(e.request).then(function(response) {
-      return response || fetch(e.request);
-    })
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request)
+      .then((response) => response || fetch(event.request))
   );
 });
