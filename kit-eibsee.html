@@ -23,11 +23,22 @@
     <!-- Content will be injected here -->
   </section>
 
+  <section id="cpr">
+    <h2 id="cpr-title">🫀 CPR Metronome</h2>
+    <p id="cpr-text">Press play and begin compressions at the beat (100–120 BPM).</p>
+    <audio controls>
+      <source src="assets/cpr-beat.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
   <script>
     const translations = {
       en: {
         title: "🏞️ Eibsee Lake Kit",
         description: "Recommended add-ons for long loops, sun exposure, and muscle fatigue.",
+        "cpr-title": "🫀 CPR Metronome",
+        "cpr-text": "Press play and begin compressions at the beat (100–120 BPM).",
         injuries: [
           
           {
@@ -161,6 +172,8 @@
       de: {
         title: "🏞️ Eibsee-Zusatzset",
         description: "Empfohlene Ergänzungen für lange Rundwege, Sonneneinstrahlung und Muskelermüdung.",
+        "cpr-title": "🫀 CPR-Metronom",
+        "cpr-text": "Wiedergabe starten und Kompressionen im Takt (100–120 BPM) durchführen.",
         injuries: [
           
           {
@@ -316,6 +329,8 @@
       const lang = document.getElementById("language").value;
       document.getElementById("title").innerText = translations[lang].title;
       document.getElementById("description").innerText = translations[lang].description;
+      document.getElementById("cpr-title").innerText = translations[lang]["cpr-title"];
+      document.getElementById("cpr-text").innerText = translations[lang]["cpr-text"];
       renderEibseeKit(lang);
     }
 
