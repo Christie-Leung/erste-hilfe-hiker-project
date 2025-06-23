@@ -1,6 +1,6 @@
 {
-  "name": "TrailSafe First Aid",
-  "short_name": "TrailSafe",
+  "name": "MediHike Erste Hilfe",
+  "short_name": "MediHike",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",

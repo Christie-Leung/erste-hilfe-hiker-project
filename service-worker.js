@@ -1,6 +1,6 @@
 self.addEventListener('install', function(e) {
   e.waitUntil(
-    caches.open('trailsafe-store').then(function(cache) {
+    caches.open('medihike-store').then(function(cache) {
       return cache.addAll([
         '/',
         '/index.html',
