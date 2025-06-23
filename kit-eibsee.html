@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <title>MediHike Eibsee Kit</title>
+</head>
+<body>
+  <h1 id="title">🏞️ Eibsee Lake Kit</h1>
+  <p id="description">Recommended add-ons for long loops, sun exposure, and muscle fatigue.</p>
+
+  <div class="lang-toggle">
+    <label for="language">🌐 Language:</label>
+    <select id="language" onchange="switchLanguage()">
+      <option value="en" selected>English</option>
+      <option value="de">Deutsch</option>
+    </select>
+  </div>
+
+  <section id="eibsee-injuries">
+    <!-- Content will be injected here -->
+  </section>
+
+  <script>
+    const translations = {
+      en: {
+        title: "🏞️ Eibsee Lake Kit",
+        description: "Recommended add-ons for long loops, sun exposure, and muscle fatigue.",
+        injuries: [
+          
+          {
+            title: "🦶 Sprains & Twisted Joints",
+            description: "Common from slips or uneven terrain.",
+            tools: [
+              {
+                name: "Elastic bandage",
+                instructions: "Wrap snugly around the injured joint to stabilize and reduce swelling."
+              },
+              {
+                name: "Emergency foil blanket",
+                instructions: "Keep warm if waiting for help after injury."
+              }
+            ]
+          },
+          {
+            title: "🩸 Cuts & Bleeding",
+            description: "From branches, falls, or equipment.",
+            tools: [
+              {
+                name: "Antiseptic wipes",
+                instructions: "Clean wound gently to prevent infection."
+              },
+              {
+                name: "Sterile gauze + tape",
+                instructions: "Cover wound and tape securely to stop bleeding."
+              },
+              {
+                name: "Adhesive bandages",
+                instructions: "For smaller scrapes and cuts."
+              },
+              {
+                name: "Nitrile gloves",
+                instructions: "Wear during treatment to avoid contamination."
+              },
+              {
+                name: "Small scissors",
+                instructions: "Cut gauze or tape to size."
+              }
+            ]
+          },
+          {
+            title: "🦟 Tick Bites & Splinters",
+            description: "Common in grassy or wooded areas.",
+            tools: [
+              {
+                name: "Tick card or hook",
+                instructions: "Slide under tick and lift gently. Disinfect area afterward."
+              },
+              {
+                name: "Tweezers",
+                instructions: "Grip and pull out splinters or thorns slowly."
+              },
+              {
+                name: "Antiseptic wipes",
+                instructions: "Clean the area after removal."
+              }
+            ]
+          },
+          {
+            title: "🔥 Blisters & Friction Wounds",
+            description: "Caused by long walks or poor footwear.",
+            tools: [
+              {
+                name: "Blister plasters",
+                instructions: "Apply to clean, dry skin directly on the blister."
+              },
+              {
+                name: "Adhesive bandages",
+                instructions: "Use on forming blisters to reduce rubbing."
+              }
+            ]
+          },
+          {
+            title: "🥶 Cold & Shock",
+            description: "Caused by cold weather, sudden injury, or water exposure.",
+            tools: [
+              {
+                name: "Emergency foil blanket",
+                instructions: "Wrap completely around body to retain heat."
+              },
+              {
+                name: "Nitrile gloves",
+                instructions: "Prevent direct contact with cold, wet, or contaminated materials."
+              }
+            ]
+          },
+          {
+            title: "💦 Dehydration & Cramping",
+            description: "The flat loop can feel long in summer sun, especially with poor hydration.",
+            tools: [
+              {
+                name: "Electrolyte tablets or sachets",
+                instructions: "Dissolve in water and drink slowly to rehydrate and prevent cramping."
+              }
+            ]
+          },
+          {
+            title: "🦶 Blisters from Long Walks",
+            description: "Even gentle trails can lead to foot friction after 7–9 km.",
+            tools: [
+              {
+                name: "Extra blister plasters",
+                instructions: "Apply to clean, dry skin at first sign of friction or on blisters."
+              }
+            ]
+          },
+          {
+            title: "💢 Muscle Soreness & Strain",
+            description: "Gentle hills and long walking can cause joint or calf fatigue.",
+            tools: [
+              {
+                name: "Arnica muscle gel",
+                instructions: "Rub into sore or tight areas. Helps relieve inflammation and minor pain."
+              }
+            ]
+          },
+          {
+            title: "🥶 Cold Lake Water or Sudden Chill",
+            description: "Unexpected slips into the lake or mountain air changes can lead to chills.",
+            tools: [
+              {
+                name: "Emergency foil blanket",
+                instructions: "Wrap fully around the body to preserve body heat."
+              }
+            ]
+          }
+        ]
+      },
+      de: {
+        title: "🏞️ Eibsee-Zusatzset",
+        description: "Empfohlene Ergänzungen für lange Rundwege, Sonneneinstrahlung und Muskelermüdung.",
+        injuries: [
+          
+          {
+            title: "🦶 Verstauchungen & Verdrehte Gelenke",
+            description: "Häufig durch Ausrutschen oder unebenes Gelände.",
+            tools: [
+              {
+                name: "Elastische Binde",
+                instructions: "Fest um das verletzte Gelenk wickeln zur Stabilisierung und Schwellungsreduktion."
+              },
+              {
+                name: "Rettungsdecke",
+                instructions: "Bei Wartezeiten nach Verletzung zum Warmhalten verwenden."
+              }
+            ]
+          },
+          {
+            title: "🩸 Schnitte & Blutungen",
+            description: "Durch Äste, Stürze oder Ausrüstung verursacht.",
+            tools: [
+              {
+                name: "Desinfektionstücher",
+                instructions: "Wunde vorsichtig reinigen, um Infektion zu vermeiden."
+              },
+              {
+                name: "Sterile Gaze + Tape",
+                instructions: "Auf Wunde legen und sicher befestigen."
+              },
+              {
+                name: "Klebepflaster",
+                instructions: "Für kleinere Wunden und Schürfungen."
+              },
+              {
+                name: "Nitrilhandschuhe",
+                instructions: "Während der Behandlung tragen, um Verunreinigung zu vermeiden."
+              },
+              {
+                name: "Kleine Schere",
+                instructions: "Gaze oder Tape auf passende Größe schneiden."
+              }
+            ]
+          },
+          {
+            title: "🦟 Zeckenbisse & Splitter",
+            description: "Häufig in hohem Gras oder Wäldern.",
+            tools: [
+              {
+                name: "Zeckenkarte oder Haken",
+                instructions: "Unter die Zecke schieben und langsam entfernen. Danach desinfizieren."
+              },
+              {
+                name: "Pinzette",
+                instructions: "Splitter vorsichtig greifen und herausziehen."
+              },
+              {
+                name: "Desinfektionstücher",
+                instructions: "Bereich nach Entfernung reinigen."
+              }
+            ]
+          },
+          {
+            title: "🔥 Blasen & Reibung",
+            description: "Durch langes Gehen oder falsches Schuhwerk verursacht.",
+            tools: [
+              {
+                name: "Blasenpflaster",
+                instructions: "Auf saubere, trockene Haut direkt über die Blase aufkleben."
+              },
+              {
+                name: "Klebepflaster",
+                instructions: "Auf drohende Blasenstellen kleben, um Reibung zu verhindern."
+              }
+            ]
+          },
+          {
+            title: "🥶 Kälte & Schock",
+            description: "Durch Kälte, Verletzungen oder Wasserkontakt verursacht.",
+            tools: [
+              {
+                name: "Rettungsdecke",
+                instructions: "Komplett um den Körper wickeln, um Wärme zu speichern."
+              },
+              {
+                name: "Nitrilhandschuhe",
+                instructions: "Kontakt mit Kälte oder Nässe vermeiden."
+              }
+            ]
+          },
+          {
+            title: "💦 Dehydration & Krämpfe",
+            description: "Die flache Runde kann im Sommer lang werden, besonders bei wenig Flüssigkeit.",
+            tools: [
+              {
+                name: "Elektrolyttabletten oder -pulver",
+                instructions: "In Wasser auflösen und langsam trinken, um Krämpfen vorzubeugen."
+              }
+            ]
+          },
+          {
+            title: "🦶 Blasen durch lange Strecken",
+            description: "Auch einfache Wege verursachen Reibung an Füßen nach mehreren Kilometern.",
+            tools: [
+              {
+                name: "Zusätzliche Blasenpflaster",
+                instructions: "Auf trockene, saubere Haut an Reibungsstellen oder Blasen aufkleben."
+              }
+            ]
+          },
+          {
+            title: "💢 Muskelkater & Überlastung",
+            description: "Leichte Anstiege und lange Laufdauer führen zu Muskelverspannung.",
+            tools: [
+              {
+                name: "Arnika-Gel",
+                instructions: "Auf verspannte oder schmerzende Stellen einreiben zur Linderung."
+              }
+            ]
+          },
+          {
+            title: "🥶 Kaltes Seewasser & Temperaturabfall",
+            description: "Unbeabsichtigter Sturz in den See oder plötzliche Kälte.",
+            tools: [
+              {
+                name: "Rettungsdecke",
+                instructions: "Den Körper komplett einwickeln, um Wärmeverlust zu vermeiden."
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    function renderEibseeKit(lang) {
+      const section = document.getElementById("eibsee-injuries");
+      section.innerHTML = "";
+      translations[lang].injuries.forEach(injury => {
+        const div = document.createElement("div");
+        div.className = "injury-section";
+        div.innerHTML = `
+          <h2>${injury.title}</h2>
+          <p>${injury.description}</p>
+          <ul>
+            ${injury.tools.map(tool => `
+              <li><strong>${tool.name}:</strong> ${tool.instructions}</li>
+            `).join('')}
+          </ul>
+        `;
+        section.appendChild(div);
+      });
+    }
+
+    function switchLanguage() {
+      const lang = document.getElementById("language").value;
+      document.getElementById("title").innerText = translations[lang].title;
+      document.getElementById("description").innerText = translations[lang].description;
+      renderEibseeKit(lang);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderEibseeKit("en");
+    });
+  </script>
+</body>
+</html>

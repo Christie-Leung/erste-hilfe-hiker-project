@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <title>MediHike Saxon Switzerland Kit</title>
+</head>
+<body>
+  <h1 id="title">🪨 Saxon Switzerland Kit</h1>
+  <p id="description">Recommended add-ons for rocky sandstone cliffs and cooler weather conditions.</p>
+
+  <div class="lang-toggle">
+    <label for="language">🌐 Language:</label>
+    <select id="language" onchange="switchLanguage()">
+      <option value="en" selected>English</option>
+      <option value="de">Deutsch</option>
+    </select>
+  </div>
+
+  <section id="saxon-injuries">
+    <!-- Injury content will be injected here -->
+  </section>
+
+  <script>
+    const translations = {
+      en: {
+        title: "🪨 Saxon Switzerland Kit",
+        description: "Recommended add-ons for rocky sandstone cliffs and cooler weather conditions.",
+        injuries: [
+          
+          {
+            title: "🦶 Sprains & Twisted Joints",
+            description: "Common from slips or uneven terrain.",
+            tools: [
+              {
+                name: "Elastic bandage",
+                instructions: "Wrap snugly around the injured joint to stabilize and reduce swelling."
+              },
+              {
+                name: "Emergency foil blanket",
+                instructions: "Keep warm if waiting for help after injury."
+              }
+            ]
+          },
+          {
+            title: "🩸 Cuts & Bleeding",
+            description: "From branches, falls, or equipment.",
+            tools: [
+              {
+                name: "Antiseptic wipes",
+                instructions: "Clean wound gently to prevent infection."
+              },
+              {
+                name: "Sterile gauze + tape",
+                instructions: "Cover wound and tape securely to stop bleeding."
+              },
+              {
+                name: "Adhesive bandages",
+                instructions: "For smaller scrapes and cuts."
+              },
+              {
+                name: "Nitrile gloves",
+                instructions: "Wear during treatment to avoid contamination."
+              },
+              {
+                name: "Small scissors",
+                instructions: "Cut gauze or tape to size."
+              }
+            ]
+          },
+          {
+            title: "🦟 Tick Bites & Splinters",
+            description: "Common in grassy or wooded areas.",
+            tools: [
+              {
+                name: "Tick card or hook",
+                instructions: "Slide under tick and lift gently. Disinfect area afterward."
+              },
+              {
+                name: "Tweezers",
+                instructions: "Grip and pull out splinters or thorns slowly."
+              },
+              {
+                name: "Antiseptic wipes",
+                instructions: "Clean the area after removal."
+              }
+            ]
+          },
+          {
+            title: "🔥 Blisters & Friction Wounds",
+            description: "Caused by long walks or poor footwear.",
+            tools: [
+              {
+                name: "Blister plasters",
+                instructions: "Apply to clean, dry skin directly on the blister."
+              },
+              {
+                name: "Adhesive bandages",
+                instructions: "Use on forming blisters to reduce rubbing."
+              }
+            ]
+          },
+          {
+            title: "🥶 Cold & Shock",
+            description: "Caused by cold weather, sudden injury, or water exposure.",
+            tools: [
+              {
+                name: "Emergency foil blanket",
+                instructions: "Wrap completely around body to retain heat."
+              },
+              {
+                name: "Nitrile gloves",
+                instructions: "Prevent direct contact with cold, wet, or contaminated materials."
+              }
+            ]
+          },
+          {
+            title: "🤕 Finger or Hand Injuries from Scrambling",
+            description: "Common when climbing or navigating sandstone ridges.",
+            tools: [
+              {
+                name: "Finger splint or splint wrap",
+                instructions: "Stabilize fingers after impact or jamming. Secure gently but firmly."
+              },
+              {
+                name: "Pain relief patch or gel",
+                instructions: "Apply to sore joints or bruised areas for topical relief."
+              }
+            ]
+          },
+          {
+            title: "🩹 Scrapes and Abrasions from Rough Rock",
+            description: "Skin can easily tear on sandstone surfaces.",
+            tools: [
+              {
+                name: "Extra plasters",
+                instructions: "Apply to cleaned wound. Replace if soaked or dirty."
+              }
+            ]
+          },
+          {
+            title: "❄️ Cold Conditions or Slips (Fall/Winter)",
+            description: "Fog and early darkness make it harder to navigate in cold seasons.",
+            tools: [
+              {
+                name: "Reflective strip",
+                instructions: "Attach to backpack or jacket to remain visible in low light."
+              },
+              {
+                name: "Microspikes",
+                instructions: "Wear on shoes to improve grip on icy paths. (winter only)"
+              }
+            ]
+          }
+        ]
+      },
+      de: {
+        title: "🪨 Sächsische Schweiz-Zusatzset",
+        description: "Empfohlene Ergänzungen für felsige Sandsteinpfade und kühlere Jahreszeiten.",
+        injuries: [
+          
+          {
+            title: "🦶 Verstauchungen & Verdrehte Gelenke",
+            description: "Häufig durch Ausrutschen oder unebenes Gelände.",
+            tools: [
+              {
+                name: "Elastische Binde",
+                instructions: "Fest um das verletzte Gelenk wickeln zur Stabilisierung und Schwellungsreduktion."
+              },
+              {
+                name: "Rettungsdecke",
+                instructions: "Bei Wartezeiten nach Verletzung zum Warmhalten verwenden."
+              }
+            ]
+          },
+          {
+            title: "🩸 Schnitte & Blutungen",
+            description: "Durch Äste, Stürze oder Ausrüstung verursacht.",
+            tools: [
+              {
+                name: "Desinfektionstücher",
+                instructions: "Wunde vorsichtig reinigen, um Infektion zu vermeiden."
+              },
+              {
+                name: "Sterile Gaze + Tape",
+                instructions: "Auf Wunde legen und sicher befestigen."
+              },
+              {
+                name: "Klebepflaster",
+                instructions: "Für kleinere Wunden und Schürfungen."
+              },
+              {
+                name: "Nitrilhandschuhe",
+                instructions: "Während der Behandlung tragen, um Verunreinigung zu vermeiden."
+              },
+              {
+                name: "Kleine Schere",
+                instructions: "Gaze oder Tape auf passende Größe schneiden."
+              }
+            ]
+          },
+          {
+            title: "🦟 Zeckenbisse & Splitter",
+            description: "Häufig in hohem Gras oder Wäldern.",
+            tools: [
+              {
+                name: "Zeckenkarte oder Haken",
+                instructions: "Unter die Zecke schieben und langsam entfernen. Danach desinfizieren."
+              },
+              {
+                name: "Pinzette",
+                instructions: "Splitter vorsichtig greifen und herausziehen."
+              },
+              {
+                name: "Desinfektionstücher",
+                instructions: "Bereich nach Entfernung reinigen."
+              }
+            ]
+          },
+          {
+            title: "🔥 Blasen & Reibung",
+            description: "Durch langes Gehen oder falsches Schuhwerk verursacht.",
+            tools: [
+              {
+                name: "Blasenpflaster",
+                instructions: "Auf saubere, trockene Haut direkt über die Blase aufkleben."
+              },
+              {
+                name: "Klebepflaster",
+                instructions: "Auf drohende Blasenstellen kleben, um Reibung zu verhindern."
+              }
+            ]
+          },
+          {
+            title: "🥶 Kälte & Schock",
+            description: "Durch Kälte, Verletzungen oder Wasserkontakt verursacht.",
+            tools: [
+              {
+                name: "Rettungsdecke",
+                instructions: "Komplett um den Körper wickeln, um Wärme zu speichern."
+              },
+              {
+                name: "Nitrilhandschuhe",
+                instructions: "Kontakt mit Kälte oder Nässe vermeiden."
+              }
+            ]
+          },
+          {
+            title: "🤕 Finger- oder Handverletzungen durch Klettern",
+            description: "Häufig beim Kraxeln über Felsrücken oder Fassen von Vorsprüngen.",
+            tools: [
+              {
+                name: "Fingerschiene oder Verband",
+                instructions: "Finger nach Stoß oder Stauchung stabilisieren. Locker, aber sicher fixieren."
+              },
+              {
+                name: "Schmerzlinderndes Gel oder Pflaster",
+                instructions: "Auf schmerzende Stellen oder Prellungen auftragen."
+              }
+            ]
+          },
+          {
+            title: "🩹 Schürfwunden durch Sandstein",
+            description: "Die raue Oberfläche kann leicht die Haut verletzen.",
+            tools: [
+              {
+                name: "Zusätzliche Pflaster",
+                instructions: "Auf gereinigte Wunde kleben. Ersetzen, wenn durchweicht oder schmutzig."
+              }
+            ]
+          },
+          {
+            title: "❄️ Kälte oder Ausrutschen (Herbst/Winter)",
+            description: "Nebel und frühe Dunkelheit erschweren die Orientierung.",
+            tools: [
+              {
+                name: "Reflektorstreifen",
+                instructions: "Am Rucksack oder an der Jacke befestigen, um bei Dämmerung sichtbar zu bleiben."
+              },
+              {
+                name: "Spikes (Microspikes)",
+                instructions: "Über den Schuhen tragen, um bei Glätte besseren Halt zu haben. (nur Winter)"
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    function renderSaxonKit(lang) {
+      const section = document.getElementById("saxon-injuries");
+      section.innerHTML = "";
+      translations[lang].injuries.forEach(injury => {
+        const div = document.createElement("div");
+        div.className = "injury-section";
+        div.innerHTML = `
+          <h2>${injury.title}</h2>
+          <p>${injury.description}</p>
+          <ul>
+            ${injury.tools.map(tool => `
+              <li><strong>${tool.name}:</strong> ${tool.instructions}</li>
+            `).join('')}
+          </ul>
+        `;
+        section.appendChild(div);
+      });
+    }
+
+    function switchLanguage() {
+      const lang = document.getElementById("language").value;
+      document.getElementById("title").innerText = translations[lang].title;
+      document.getElementById("description").innerText = translations[lang].description;
+      renderSaxonKit(lang);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderSaxonKit("en");
+    });
+  </script>
+</body>
+</html>

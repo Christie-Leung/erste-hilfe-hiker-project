@@ -1,167 +1,38 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
-  <title>MediHike First Aid</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <title>MediHike First Aid Kits</title>
 </head>
 <body>
-  <h1 id="title">MediHike First Aid</h1>
-  <p id="description">This guide is available offline after first load.</p>
+  <h1>MediHike First Aid Kits</h1>
+  <p>Your offline guide to handling common hiking injuries in Germany. Scan a QR code or tap a kit to view.</p>
 
-  <div class="lang-toggle">
-    <label for="language">🌐 Language:</label>
-    <select id="language" onchange="switchLanguage()">
-      <option value="en" selected>English</option>
-      <option value="de">Deutsch</option>
-    </select>
-  </div>
+  <section>
+    <h2>📦 Available Kits</h2>
+    <ul class="kit-grid">
+      <li><a href="core-kit.html">🧰 Core Kit</a><br><small>Included with every rental</small></li>
+      <li><a href="kit-zugspitze.html">🏔️ Zugspitze Kit</a><br><small>Alpine terrain + winter hazards</small></li>
+      <li><a href="kit-saxon.html">🪨 Saxon Switzerland Kit</a><br><small>Climbs + sandstone cliffs</small></li>
+      <li><a href="kit-eibsee.html">🏞️ Eibsee Lake Kit</a><br><small>Family-friendly + water safety</small></li>
+    </ul>
+  </section>
 
-  <ul>
-    <li><a href="#ankle" id="link-ankle">Twisted Ankle</a></li>
-    <li><a href="#cut" id="link-cut">Cut or Bleeding</a></li>
-    <li><a href="#tick" id="link-tick">Tick Removal</a></li>
-    <li><a href="#cpr" id="link-cpr">CPR Metronome</a></li>
-  </ul>
-
-  <section id="ankle">
-    <h2 id="ankle-title">🦶 Twisted Ankle</h2>
-    <ol id="ankle-list">
-      <li>Stop walking.</li>
-      <li>Wrap with elastic bandage.</li>
-      <li>Elevate and rest.</li>
-      <li>Use cold pack if included.</li>
-      <li>Seek help if pain persists.</li>
+  <section>
+    <h2>🧠 How to Use</h2>
+    <ol>
+      <li>Choose your trail or scan the QR code on your rental kit.</li>
+      <li>Each page works offline after first load.</li>
+      <li>Tap an injury to learn which items to use and how to treat it.</li>
     </ol>
   </section>
 
-  <section id="cut">
-    <h2 id="cut-title">🩸 Cut or Bleeding</h2>
-    <ol id="cut-list">
-      <li>Clean with antiseptic wipe.</li>
-      <li>Apply gauze or bandage.</li>
-      <li>Hold pressure to stop bleeding.</li>
-      <li>Use gloves if available.</li>
-    </ol>
+  <section>
+    <h2>🕊️ Safety Reminder</h2>
+    <p>Always let someone know where you're hiking. If in doubt, seek help. This guide is for support, not a replacement for emergency services.</p>
   </section>
-
-  <section id="tick">
-    <h2 id="tick-title">🐞 Tick Removal</h2>
-    <ol id="tick-list">
-      <li>Use tick card or tweezers.</li>
-      <li>Pull slowly from base.</li>
-      <li>Clean area.</li>
-      <li>Note time and place.</li>
-      <li>Monitor for rash or fever.</li>
-    </ol>
-  </section>
-
-  <section id="cpr">
-    <h2 id="cpr-title">🫀 CPR Metronome</h2>
-    <p id="cpr-text">Press play and begin compressions at the beat (100–120 BPM).</p>
-    <audio controls>
-      <source src="assets/cpr-beat.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </section>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js');
-    }
-
-    const translations = {
-      en: {
-        title: "MediHike First Aid",
-        description: "This guide is available offline after first load.",
-        "link-ankle": "Twisted Ankle",
-        "link-cut": "Cut or Bleeding",
-        "link-tick": "Tick Removal",
-        "link-cpr": "CPR Metronome",
-        "ankle-title": "🦶 Twisted Ankle",
-        "ankle-list": [
-          "Stop walking.",
-          "Wrap with elastic bandage.",
-          "Elevate and rest.",
-          "Use cold pack if included.",
-          "Seek help if pain persists."
-        ],
-        "cut-title": "🩸 Cut or Bleeding",
-        "cut-list": [
-          "Clean with antiseptic wipe.",
-          "Apply gauze or bandage.",
-          "Hold pressure to stop bleeding.",
-          "Use gloves if available."
-        ],
-        "tick-title": "🐞 Tick Removal",
-        "tick-list": [
-          "Use tick card or tweezers.",
-          "Pull slowly from base.",
-          "Clean area.",
-          "Note time and place.",
-          "Monitor for rash or fever."
-        ],
-        "cpr-title": "🫀 CPR Metronome",
-        "cpr-text": "Press play and begin compressions at the beat (100–120 BPM)."
-      },
-      de: {
-        title: "MediHike Erste Hilfe",
-        description: "Dieser Leitfaden ist nach dem ersten Laden offline verfügbar.",
-        "link-ankle": "Verstauchter Knöchel",
-        "link-cut": "Schnitt oder Blutung",
-        "link-tick": "Zeckenentfernung",
-        "link-cpr": "CPR-Metronom",
-        "ankle-title": "🦶 Verstauchter Knöchel",
-        "ankle-list": [
-          "Nicht weitergehen.",
-          "Mit elastischer Binde umwickeln.",
-          "Hochlagern und ausruhen.",
-          "Kältepack verwenden, falls vorhanden.",
-          "Hilfe holen, wenn Schmerzen anhalten."
-        ],
-        "cut-title": "🩸 Schnitt oder Blutung",
-        "cut-list": [
-          "Mit Desinfektionstuch reinigen.",
-          "Mit Gaze oder Pflaster abdecken.",
-          "Druck ausüben, um Blutung zu stoppen.",
-          "Handschuhe verwenden, wenn vorhanden."
-        ],
-        "tick-title": "🐞 Zeckenentfernung",
-        "tick-list": [
-          "Zeckenkarte oder Pinzette verwenden.",
-          "Langsam an der Basis herausziehen.",
-          "Bereich reinigen.",
-          "Zeit und Ort notieren.",
-          "Auf Ausschlag oder Fieber achten."
-        ],
-        "cpr-title": "🫀 CPR-Metronom",
-        "cpr-text": "Wiedergabe starten und Kompressionen im Takt (100–120 BPM) durchführen."
-      }
-    };
-
-    function switchLanguage() {
-      const lang = document.getElementById("language").value;
-      for (const key in translations[lang]) {
-        const el = document.getElementById(key);
-
-        // Handle list items separately
-        if (Array.isArray(translations[lang][key])) {
-          const list = document.getElementById(key);
-          if (list) {
-            list.innerHTML = "";
-            translations[lang][key].forEach(item => {
-              const li = document.createElement("li");
-              li.textContent = item;
-              list.appendChild(li);
-            });
-          }
-        } else if (el) {
-          el.innerText = translations[lang][key];
-        }
-      }
-    }
-  </script>
 </body>
 </html>

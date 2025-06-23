@@ -1,25 +1,57 @@
+/* General layout */
 body {
-  font-family: sans-serif;
-  padding: 20px;
-  background: #f4f4f4;
+  font-family: system-ui, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 1rem;
   color: #333;
 }
 
+/* Headings */
 h1 {
+  font-size: 1.8rem;
   color: #2e7d32;
-  font-size: 1.8em;
+  margin-bottom: 0.5rem;
 }
 
 h2 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
   color: #333;
-  margin-top: 1.5em;
 }
 
-ul {
-  padding-left: 1.2em;
-  line-height: 1.6;
+h3 {
+  margin: 0.5rem 0 0.2rem;
+  color: #2e7d32;
 }
 
+/* Paragraphs and spacing */
+p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Lists */
+ul, ol {
+  margin: 0 0 1.5rem 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Language selector */
+.lang-toggle {
+  margin: 1rem 0;
+}
+
+select {
+  padding: 0.3rem;
+  font-size: 1rem;
+}
+
+
+/* Link styles */
 a {
   color: #2e7d32;
   text-decoration: none;
@@ -27,4 +59,79 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.kit-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 0;
+}
+.kit-grid li {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+.kit-grid a {
+  font-size: 1.1em;
+  text-decoration: none;
+  color: #2e7d32;
+}
+
+/* === Injury section blocks === */
+.injury-section {
+  background-color: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* Headings inside sections */
+.injury-section h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #2e7d32;
+}
+
+/* Descriptions under headings */
+.injury-section p {
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  color: #555;
+}
+
+/* Tool list inside injury blocks */
+.injury-section ul {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+.injury-section li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.injury-section strong {
+  color: #000;
+}
+
+/* Responsive tweaks (optional) */
+@media (max-width: 600px) {
+  body {
+    padding: 0.75rem;
+  }
+
+  .injury-section {
+    padding: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
 }

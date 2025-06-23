@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <title>MediHike Zugspitze Kit</title>
+</head>
+<body>
+  <h1 id="title">🏔️ Zugspitze Kit</h1>
+  <p id="description">Recommended add-ons for high-altitude trails and winter conditions.</p>
+
+  <div class="lang-toggle">
+    <label for="language">🌐 Language:</label>
+    <select id="language" onchange="switchLanguage()">
+      <option value="en" selected>English</option>
+      <option value="de">Deutsch</option>
+    </select>
+  </div>
+
+  <section id="zugspitze-injuries">
+    <!-- Content will be injected here -->
+  </section>
+
+  <script>
+    const translations = {
+      en: {
+        title: "🏔️ Zugspitze Kit",
+        description: "Recommended add-ons for high-altitude trails and winter conditions.",
+        injuries: [
+          
+          {
+            title: "🦶 Sprains & Twisted Joints",
+            description: "Common from slips or uneven terrain.",
+            tools: [
+              {
+                name: "Elastic bandage",
+                instructions: "Wrap snugly around the injured joint to stabilize and reduce swelling."
+              },
+              {
+                name: "Emergency foil blanket",
+                instructions: "Keep warm if waiting for help after injury."
+              }
+            ]
+          },
+          {
+            title: "🩸 Cuts & Bleeding",
+            description: "From branches, falls, or equipment.",
+            tools: [
+              {
+                name: "Antiseptic wipes",
+                instructions: "Clean wound gently to prevent infection."
+              },
+              {
+                name: "Sterile gauze + tape",
+                instructions: "Cover wound and tape securely to stop bleeding."
+              },
+              {
+                name: "Adhesive bandages",
+                instructions: "For smaller scrapes and cuts."
+              },
+              {
+                name: "Nitrile gloves",
+                instructions: "Wear during treatment to avoid contamination."
+              },
+              {
+                name: "Small scissors",
+                instructions: "Cut gauze or tape to size."
+              }
+            ]
+          },
+          {
+            title: "🦟 Tick Bites & Splinters",
+            description: "Common in grassy or wooded areas.",
+            tools: [
+              {
+                name: "Tick card or hook",
+                instructions: "Slide under tick and lift gently. Disinfect area afterward."
+              },
+              {
+                name: "Tweezers",
+                instructions: "Grip and pull out splinters or thorns slowly."
+              },
+              {
+                name: "Antiseptic wipes",
+                instructions: "Clean the area after removal."
+              }
+            ]
+          },
+          {
+            title: "🔥 Blisters & Friction Wounds",
+            description: "Caused by long walks or poor footwear.",
+            tools: [
+              {
+                name: "Blister plasters",
+                instructions: "Apply to clean, dry skin directly on the blister."
+              },
+              {
+                name: "Adhesive bandages",
+                instructions: "Use on forming blisters to reduce rubbing."
+              }
+            ]
+          },
+          {
+            title: "🥶 Cold & Shock",
+            description: "Caused by cold weather, sudden injury, or water exposure.",
+            tools: [
+              {
+                name: "Emergency foil blanket",
+                instructions: "Wrap completely around body to retain heat."
+              },
+              {
+                name: "Nitrile gloves",
+                instructions: "Prevent direct contact with cold, wet, or contaminated materials."
+              }
+            ]
+          },
+          {
+            title: "🦵 Climbing Strains & Impact Injuries",
+            description: "Slippery rock, loose scree, and elevation make slips common.",
+            tools: [
+              {
+                name: "Instant cold pack",
+                instructions: "Use to reduce swelling after a fall or impact injury."
+              },
+              {
+                name: "Pressure bandage",
+                instructions: "Wrap around injuries to control swelling or minor bleeding."
+              }
+            ]
+          },
+          {
+            title: "💧 Dehydration at Elevation",
+            description: "Higher altitudes can increase water loss and cramping.",
+            tools: [
+              {
+                name: "Electrolyte tablets",
+                instructions: "Dissolve in water and sip slowly to replenish lost minerals."
+              }
+            ]
+          },
+          {
+            title: "📦 Tamper-Evidence Tracking",
+            description: "Optional: Kit may include an oxygen-activated ink strip.",
+            tools: [
+              {
+                name: "Oxygen-activated ink patch",
+                instructions: "Will permanently change color once exposed to air. Used to detect if the kit was opened during hike."
+              }
+            ]
+          },
+          {
+            title: "❄️ Cold Weather Conditions (Winter/Spring)",
+            description: "Weather can shift rapidly in the Alps — be prepared for snow or wind chill.",
+            tools: [
+              {
+                name: "Hand warmers",
+                instructions: "Activate and keep in gloves or pockets to prevent numb fingers."
+              },
+              {
+                name: "Extra emergency foil blanket",
+                instructions: "Provides backup insulation if someone is wet, injured, or in shock."
+              }
+            ]
+          }
+        ]
+      },
+      de: {
+        title: "🏔️ Zugspitze-Zusatzset",
+        description: "Empfohlene Ergänzungen für Höhenwanderungen und Winterbedingungen.",
+        injuries: [
+          
+          {
+            title: "🦶 Verstauchungen & Verdrehte Gelenke",
+            description: "Häufig durch Ausrutschen oder unebenes Gelände.",
+            tools: [
+              {
+                name: "Elastische Binde",
+                instructions: "Fest um das verletzte Gelenk wickeln zur Stabilisierung und Schwellungsreduktion."
+              },
+              {
+                name: "Rettungsdecke",
+                instructions: "Bei Wartezeiten nach Verletzung zum Warmhalten verwenden."
+              }
+            ]
+          },
+          {
+            title: "🩸 Schnitte & Blutungen",
+            description: "Durch Äste, Stürze oder Ausrüstung verursacht.",
+            tools: [
+              {
+                name: "Desinfektionstücher",
+                instructions: "Wunde vorsichtig reinigen, um Infektion zu vermeiden."
+              },
+              {
+                name: "Sterile Gaze + Tape",
+                instructions: "Auf Wunde legen und sicher befestigen."
+              },
+              {
+                name: "Klebepflaster",
+                instructions: "Für kleinere Wunden und Schürfungen."
+              },
+              {
+                name: "Nitrilhandschuhe",
+                instructions: "Während der Behandlung tragen, um Verunreinigung zu vermeiden."
+              },
+              {
+                name: "Kleine Schere",
+                instructions: "Gaze oder Tape auf passende Größe schneiden."
+              }
+            ]
+          },
+          {
+            title: "🦟 Zeckenbisse & Splitter",
+            description: "Häufig in hohem Gras oder Wäldern.",
+            tools: [
+              {
+                name: "Zeckenkarte oder Haken",
+                instructions: "Unter die Zecke schieben und langsam entfernen. Danach desinfizieren."
+              },
+              {
+                name: "Pinzette",
+                instructions: "Splitter vorsichtig greifen und herausziehen."
+              },
+              {
+                name: "Desinfektionstücher",
+                instructions: "Bereich nach Entfernung reinigen."
+              }
+            ]
+          },
+          {
+            title: "🔥 Blasen & Reibung",
+            description: "Durch langes Gehen oder falsches Schuhwerk verursacht.",
+            tools: [
+              {
+                name: "Blasenpflaster",
+                instructions: "Auf saubere, trockene Haut direkt über die Blase aufkleben."
+              },
+              {
+                name: "Klebepflaster",
+                instructions: "Auf drohende Blasenstellen kleben, um Reibung zu verhindern."
+              }
+            ]
+          },
+          {
+            title: "🥶 Kälte & Schock",
+            description: "Durch Kälte, Verletzungen oder Wasserkontakt verursacht.",
+            tools: [
+              {
+                name: "Rettungsdecke",
+                instructions: "Komplett um den Körper wickeln, um Wärme zu speichern."
+              },
+              {
+                name: "Nitrilhandschuhe",
+                instructions: "Kontakt mit Kälte oder Nässe vermeiden."
+              }
+            ]
+          },
+          {
+            title: "🦵 Kletterbelastungen & Aufprallverletzungen",
+            description: "Rutschige Steine und Geröll führen häufig zu Stürzen.",
+            tools: [
+              {
+                name: "Sofort-Kühlpack",
+                instructions: "Zur Schwellungsreduktion bei Prellungen oder Stürzen verwenden."
+              },
+              {
+                name: "Druckverband",
+                instructions: "Umwickeln zur Kontrolle von Schwellungen oder leichten Blutungen."
+              }
+            ]
+          },
+          {
+            title: "💧 Dehydration in großer Höhe",
+            description: "Höhenlage erhöht den Wasserverlust und das Risiko von Krämpfen.",
+            tools: [
+              {
+                name: "Elektrolyttabletten",
+                instructions: "In Wasser auflösen und langsam trinken, um Mineralien zu ersetzen."
+              }
+            ]
+          },
+          {
+            title: "📦 Manipulationssichere Verpackung",
+            description: "Optional: Das Set enthält einen sauerstoffempfindlichen Indikatorstreifen.",
+            tools: [
+              {
+                name: "Sauerstoff-Indikator",
+                instructions: "Verändert dauerhaft die Farbe nach Luftkontakt. Zeigt an, ob das Set unterwegs geöffnet wurde."
+              }
+            ]
+          },
+          {
+            title: "❄️ Kältebedingungen (Winter/Frühjahr)",
+            description: "Wetterumschwünge sind im Gebirge häufig – Schnee und Wind möglich.",
+            tools: [
+              {
+                name: "Handwärmer",
+                instructions: "Aktivieren und in Handschuhen oder Taschen platzieren, um Finger warm zu halten."
+              },
+              {
+                name: "Zusätzliche Rettungsdecke",
+                instructions: "Reserve-Isolierung bei Nässe, Verletzung oder Schock."
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    function renderZugspitzeKit(lang) {
+      const section = document.getElementById("zugspitze-injuries");
+      section.innerHTML = "";
+      translations[lang].injuries.forEach(injury => {
+        const div = document.createElement("div");
+        div.className = "injury-section";
+        div.innerHTML = `
+          <h2>${injury.title}</h2>
+          <p>${injury.description}</p>
+          <ul>
+            ${injury.tools.map(tool => `
+              <li><strong>${tool.name}:</strong> ${tool.instructions}</li>
+            `).join('')}
+          </ul>
+        `;
+        section.appendChild(div);
+      });
+    }
+
+    function switchLanguage() {
+      const lang = document.getElementById("language").value;
+      document.getElementById("title").innerText = translations[lang].title;
+      document.getElementById("description").innerText = translations[lang].description;
+      renderZugspitzeKit(lang);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderZugspitzeKit("en");
+    });
+  </script>
+</body>
+</html>

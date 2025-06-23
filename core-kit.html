@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>MediHike Core Kit</title>
+</head>
+<body>
+  <h1 id="title">🧰 MediHike Core Kit</h1>
+  <p id="description">This is the standard kit included with every rental.</p>
+
+  <div class="lang-toggle">
+    <label for="language">🌐 Language:</label>
+    <select id="language" onchange="switchLanguage()">
+      <option value="en" selected>English</option>
+      <option value="de">Deutsch</option>
+    </select>
+  </div>
+
+  <section id="corekit-injuries">
+    <!-- Items will be inserted here dynamically -->
+  </section>
+
+  <script>
+    const translations = {
+      en: {
+        title: "🧰 MediHike Core Kit",
+        description: "This is the standard kit included with every rental.",
+        injuries: [
+          {
+            title: "🦶 Sprains & Twisted Joints",
+            description: "Common from slips or uneven terrain.",
+            tools: [
+              {
+                name: "Elastic bandage",
+                instructions: "Wrap snugly around the injured joint to stabilize and reduce swelling."
+              },
+              {
+                name: "Emergency foil blanket",
+                instructions: "Keep warm if waiting for help after injury."
+              }
+            ]
+          },
+          {
+            title: "🩸 Cuts & Bleeding",
+            description: "From branches, falls, or equipment.",
+            tools: [
+              {
+                name: "Antiseptic wipes",
+                instructions: "Clean wound gently to prevent infection."
+              },
+              {
+                name: "Sterile gauze + tape",
+                instructions: "Cover wound and tape securely to stop bleeding."
+              },
+              {
+                name: "Adhesive bandages",
+                instructions: "For smaller scrapes and cuts."
+              },
+              {
+                name: "Nitrile gloves",
+                instructions: "Wear during treatment to avoid contamination."
+              },
+              {
+                name: "Small scissors",
+                instructions: "Cut gauze or tape to size."
+              }
+            ]
+          },
+          {
+            title: "🦟 Tick Bites & Splinters",
+            description: "Common in grassy or wooded areas.",
+            tools: [
+              {
+                name: "Tick card or hook",
+                instructions: "Slide under tick and lift gently. Disinfect area afterward."
+              },
+              {
+                name: "Tweezers",
+                instructions: "Grip and pull out splinters or thorns slowly."
+              },
+              {
+                name: "Antiseptic wipes",
+                instructions: "Clean the area after removal."
+              }
+            ]
+          },
+          {
+            title: "🔥 Blisters & Friction Wounds",
+            description: "Caused by long walks or poor footwear.",
+            tools: [
+              {
+                name: "Blister plasters",
+                instructions: "Apply to clean, dry skin directly on the blister."
+              },
+              {
+                name: "Adhesive bandages",
+                instructions: "Use on forming blisters to reduce rubbing."
+              }
+            ]
+          },
+          {
+            title: "🥶 Cold & Shock",
+            description: "Caused by cold weather, sudden injury, or water exposure.",
+            tools: [
+              {
+                name: "Emergency foil blanket",
+                instructions: "Wrap completely around body to retain heat."
+              },
+              {
+                name: "Nitrile gloves",
+                instructions: "Prevent direct contact with cold, wet, or contaminated materials."
+              }
+            ]
+          }
+        ]
+      },
+      de: {
+        title: "🧰 MediHike Grundausstattung",
+        description: "Dies ist das Standard-Set, das mit jedem Verleih enthalten ist.",
+        injuries: [
+          {
+            title: "🦶 Verstauchungen & Verdrehte Gelenke",
+            description: "Häufig durch Ausrutschen oder unebenes Gelände.",
+            tools: [
+              {
+                name: "Elastische Binde",
+                instructions: "Fest um das verletzte Gelenk wickeln zur Stabilisierung und Schwellungsreduktion."
+              },
+              {
+                name: "Rettungsdecke",
+                instructions: "Bei Wartezeiten nach Verletzung zum Warmhalten verwenden."
+              }
+            ]
+          },
+          {
+            title: "🩸 Schnitte & Blutungen",
+            description: "Durch Äste, Stürze oder Ausrüstung verursacht.",
+            tools: [
+              {
+                name: "Desinfektionstücher",
+                instructions: "Wunde vorsichtig reinigen, um Infektion zu vermeiden."
+              },
+              {
+                name: "Sterile Gaze + Tape",
+                instructions: "Auf Wunde legen und sicher befestigen."
+              },
+              {
+                name: "Klebepflaster",
+                instructions: "Für kleinere Wunden und Schürfungen."
+              },
+              {
+                name: "Nitrilhandschuhe",
+                instructions: "Während der Behandlung tragen, um Verunreinigung zu vermeiden."
+              },
+              {
+                name: "Kleine Schere",
+                instructions: "Gaze oder Tape auf passende Größe schneiden."
+              }
+            ]
+          },
+          {
+            title: "🦟 Zeckenbisse & Splitter",
+            description: "Häufig in hohem Gras oder Wäldern.",
+            tools: [
+              {
+                name: "Zeckenkarte oder Haken",
+                instructions: "Unter die Zecke schieben und langsam entfernen. Danach desinfizieren."
+              },
+              {
+                name: "Pinzette",
+                instructions: "Splitter vorsichtig greifen und herausziehen."
+              },
+              {
+                name: "Desinfektionstücher",
+                instructions: "Bereich nach Entfernung reinigen."
+              }
+            ]
+          },
+          {
+            title: "🔥 Blasen & Reibung",
+            description: "Durch langes Gehen oder falsches Schuhwerk verursacht.",
+            tools: [
+              {
+                name: "Blasenpflaster",
+                instructions: "Auf saubere, trockene Haut direkt über die Blase aufkleben."
+              },
+              {
+                name: "Klebepflaster",
+                instructions: "Auf drohende Blasenstellen kleben, um Reibung zu verhindern."
+              }
+            ]
+          },
+          {
+            title: "🥶 Kälte & Schock",
+            description: "Durch Kälte, Verletzungen oder Wasserkontakt verursacht.",
+            tools: [
+              {
+                name: "Rettungsdecke",
+                instructions: "Komplett um den Körper wickeln, um Wärme zu speichern."
+              },
+              {
+                name: "Nitrilhandschuhe",
+                instructions: "Kontakt mit Kälte oder Nässe vermeiden."
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    function renderCoreKit(lang) {
+      const section = document.getElementById("corekit-injuries");
+      section.innerHTML = "";
+      translations[lang].injuries.forEach(injury => {
+        const container = document.createElement("div");
+        container.className = "injury-section";
+        container.innerHTML = `
+          <h2>${injury.title}</h2>
+          <p>${injury.description}</p>
+          <ul>
+            ${injury.tools.map(tool => `
+              <li><strong>${tool.name}:</strong> ${tool.instructions}</li>
+            `).join('')}
+          </ul>
+        `;
+        section.appendChild(container);
+      });
+    }
+
+    function switchLanguage() {
+      const lang = document.getElementById("language").value;
+      document.getElementById("title").innerText = translations[lang].title;
+      document.getElementById("description").innerText = translations[lang].description;
+      renderCoreKit(lang);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCoreKit("en");
+    });
+  </script>
+</body>
+</html>
