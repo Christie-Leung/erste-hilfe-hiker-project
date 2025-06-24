@@ -1,6 +1,6 @@
 {
-  "name": "MediHike Erste Hilfe",
-  "short_name": "MediHike",
+  "name": "MedPfad Erste Hilfe",
+  "short_name": "MedPfad",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'medihike-cache-v1';
+const CACHE_NAME = 'MedPfad-cache-v1';
 const urlsToCache = [
   '/',
   '/core-kit.html',
