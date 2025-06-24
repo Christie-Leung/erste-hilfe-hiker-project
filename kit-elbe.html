@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <title>MediHike Elbe Sandstone Kit</title>
+</head>
+<body>
+  <h1 id="title">🪨 Elbe Sandstone Kit</h1>
+  <p id="description">Recommended add-ons for rocky climbs, wechselhaftes Wetter, and forest terrain.</p>
+
+  <div class="lang-toggle">
+    <label for="language">🌐 Language:</label>
+    <select id="language" onchange="switchLanguage()">
+      <option value="en" selected>English</option>
+      <option value="de">Deutsch</option>
+    </select>
+  </div>
+
+  <section id="elbsand-injuries">
+    <!-- Injected injury/tool sections -->
+  </section>
+
+  <section id="cpr">
+    <h2 id="cpr-title">🫀 CPR Metronome</h2>
+    <p id="cpr-text">Press play and begin compressions at the beat (100–120 BPM).</p>
+    <audio controls>
+      <source src="assets/cpr-beat.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  <script>
+    const translations = {
+      en: {
+        title: "🪨 Elbe Sandstone Kit",
+        description: "Recommended add-ons for rocky climbs, variable weather, and forest trails.",
+        "cpr-title": "🫀 CPR Metronome",
+        "cpr-text": "Press play and begin compressions at the beat (100–120 BPM).",
+        injuries: [
+          {
+            title: "🧱 Rockfall & Head Impacts",
+            description: "Loose sandstone and narrow gorges risk falling debris or trips on steps/bridges (e.g. Schwedenlöcher) :contentReference[oaicite:1]{index=1}.",
+            tools: [
+              { name: "Small scissors *or* tweezers", instructions: "For minor cuts from rock impact." },
+              { name: "Adhesive bandage", instructions: "Cover small wounds." }
+            ]
+          },
+          {
+            title: "🦶 Sprains & Ankle Injuries",
+            description: "Steep, uneven trails and rocky surfaces make twisting easy :contentReference[oaicite:2]{index=2}.",
+            tools: [
+              { name: "Elastic bandage", instructions: "Wrap ankle to stabilize." },
+              { name: "Emergency foil blanket", instructions: "Warm injured hiker while assessing." }
+            ]
+          },
+          {
+            title: "🔥 Blisters & Foot Pain",
+            description: "Long forest trails and varied terrain cause friction :contentReference[oaicite:3]{index=3}.",
+            tools: [
+              { name: "Blister plasters", instructions: "Apply on hot spots." },
+              { name: "Adhesive bandages", instructions: "Cover forming blisters." }
+            ]
+          },
+          {
+            title: "🌞 Sun Exposure & Heat",
+            description: "Open ridges and rock-surfaces reflect sunlight; dehydration possible :contentReference[oaicite:4]{index=4}.",
+            tools: [
+              { name: "Electrolyte tablets", instructions: "Rehydrate in hot conditions." },
+              { name: "Antiseptic wipes", instructions: "Clean sweat-rash or cuts." }
+            ]
+          },
+          {
+            title: "🥶 Cold & Hypothermia Risk",
+            description: "Gorges and tree shade stay damp/cold—even mid-summer :contentReference[oaicite:5]{index=5}.",
+            tools: [
+              { name: "Emergency foil blanket", instructions: "Wrap to conserve heat." },
+              { name: "Nitrile gloves", instructions: "Keep hands warm, prevent infection." }
+            ]
+          },
+          {
+            title: "🦟 Tick Bites & Scrapes",
+            description: "Forest edges harbor ticks; sandals or leggings lead to scrapes :contentReference[oaicite:6]{index=6}.",
+            tools: [
+              { name: "Tick card or hook", instructions: "Remove tick safely." },
+              { name: "Tweezers", instructions: "Extract splinters or thorns." },
+              { name: "Antiseptic wipes", instructions: "Disinfect affected area." }
+            ]
+          }
+        ]
+      },
+      de: {
+        title: "🪨 Elbsandstein-Zusatzset",
+        description: "Ergänzungen für felsige Kletterpassagen, wechselhaftes Wetter und Waldpfade.",
+        "cpr-title": "🫀 CPR-Metronom",
+        "cpr-text": "Wiedergabe starten und Kompressionen im Takt (100–120 BPM) durchführen.",
+        injuries: [
+          {
+            title: "🧱 Felssturz & Kopfverletzungen",
+            description: "Lose Sandsteinbrocken und enge Schluchten (z. B. Schwedenlöcher) bergen Sturz- und Schlaggefahr :contentReference[oaicite:7]{index=7}.",
+            tools: [
+              { name: "Kleine Schere oder Pinzette", instructions: "Für Wundreinigung kleiner Schnitte." },
+              { name: "Klebepflaster", instructions: "Deckt kleine Wunden ab." }
+            ]
+          },
+          {
+            title: "🦶 Verstauchungen & Knöchelverletzungen",
+            description: "Steile, unebene Wege begünstigen Umknicke :contentReference[oaicite:8]{index=8}.",
+            tools: [
+              { name: "Elastische Binde", instructions: "Knöchel stabilisieren." },
+              { name: "Rettungsdecke", instructions: "Verletzten warm halten." }
+            ]
+          },
+          {
+            title: "🔥 Blasen & Fußschmerzen",
+            description: "Lange Waldwege und unterschiedliche Untergründe verursachen Reibung :contentReference[oaicite:9]{index=9}.",
+            tools: [
+              { name: "Blasenpflaster", instructions: "Auf heiße Stellen kleben." },
+              { name: "Klebepflaster", instructions: "Blasenbildung vorbeugen." }
+            ]
+          },
+          {
+            title: "🌞 Sonnenexposition & Hitze",
+            description: "Offene Grate und Felsen reflektieren starke Sonne, Dehydrierung möglich :contentReference[oaicite:10]{index=10}.",
+            tools: [
+              { name: "Elektrolyttabletten", instructions: "Erfrischung in Hitze." },
+              { name: "Desinfektionstücher", instructions: "Nach Schweiß oder kleineren Verletzungen reinigen." }
+            ]
+          },
+          {
+            title: "🥶 Kälte & Unterkühlungsgefahr",
+            description: "Schluchten und Waldabschnitte bleiben kühl und feucht – selbst im Sommer :contentReference[oaicite:11]{index=11}.",
+            tools: [
+              { name: "Rettungsdecke", instructions: "Zum Wärmeerhalt nutzen." },
+              { name: "Nitrilhandschuhe", instructions: "Schützen Hände vor Kälte und Infektionen." }
+            ]
+          },
+          {
+            title: "🦟 Zeckenbisse & Schürfwunden",
+            description: "Waldränder bergen Zeckenrisiko; offene Schuhe können Kratzer verursachen :contentReference[oaicite:12]{index=12}.",
+            tools: [
+              { name: "Zeckenkarte oder Haken", instructions: "Zecke sicher entfernen." },
+              { name: "Pinzette", instructions: "Splitter oder Dornen ziehen." },
+              { name: "Desinfektionstücher", instructions: "Betroffene Stelle reinigen." }
+            ]
+          }
+        ]
+      }
+    };
+
+    function renderElbeKit(lang) {
+      const sec = document.getElementById("elbsand-injuries");
+      sec.innerHTML = "";
+      translations[lang].injuries.forEach(injury => {
+        const el = document.createElement("div");
+        el.className = "injury-section";
+        el.innerHTML = `
+          <h2>${injury.title}</h2>
+          <p>${injury.description}</p>
+          <ul>${injury.tools.map(t => `<li><strong>${t.name}:</strong> ${t.instructions}</li>`).join('')}</ul>`;
+        sec.appendChild(el);
+      });
+    }
+
+    function switchLanguage() {
+      const lang = document.getElementById("language").value;
+      document.getElementById("title").innerText = translations[lang].title;
+      document.getElementById("description").innerText = translations[lang].description;
+      document.getElementById("cpr-title").innerText = translations[lang]["cpr-title"];
+      document.getElementById("cpr-text").innerText = translations[lang]["cpr-text"];
+      renderElbeKit(lang);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => renderElbeKit("en"));
+  </script>
+</body>
+</html>
