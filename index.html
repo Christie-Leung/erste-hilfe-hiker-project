@@ -8,22 +8,30 @@
   <title>MediHike First Aid Kits</title>
 </head>
 <body>
-  <h1>MediHike First Aid Kits</h1>
-  <p>Your offline guide to handling common hiking injuries in Germany. Scan a QR code or tap a kit to view.</p>
+  <h1 id="title">MediHike First Aid Kits</h1>
+  <p id="subtitle">Your offline guide to handling common hiking injuries in Germany. Scan a QR code or tap a kit to view.</p>
+
+  <div class="lang-toggle">
+    <label for="language">🌐 Language:</label>
+    <select id="language" onchange="switchLanguage()">
+      <option value="en" selected>English</option>
+      <option value="de">Deutsch</option>
+    </select>
+  </div>
 
   <section>
-    <h2>📦 Available Kits</h2>
+    <h2 id="kits-header">📦 Available Kits</h2>
     <ul class="kit-grid">
-      <li><a href="core-kit.html">🧰 Core Kit</a><br><small>Included with every rental</small></li>
-      <li><a href="kit-zugspitze.html">🏔️ Zugspitze Kit</a><br><small>Alpine terrain + winter hazards</small></li>
-      <li><a href="kit-saxon.html">🪨 Saxon Switzerland Kit</a><br><small>Climbs + sandstone cliffs</small></li>
-      <li><a href="kit-eibsee.html">🏞️ Eibsee Lake Kit</a><br><small>Family-friendly + water safety</small></li>
+      <li><a href="core-kit.html" id="kit-core">🧰 Core Kit</a><br><small id="kit-core-desc">Included with every rental</small></li>
+      <li><a href="kit-zugspitze.html" id="kit-zugspitze">🏔️ Zugspitze Kit</a><br><small id="kit-zugspitze-desc">Alpine terrain + winter hazards</small></li>
+      <li><a href="kit-saxon.html" id="kit-saxon">🪨 Saxon Switzerland Kit</a><br><small id="kit-saxon-desc">Climbs + sandstone cliffs</small></li>
+      <li><a href="kit-eibsee.html" id="kit-eibsee">🏞️ Eibsee Lake Kit</a><br><small id="kit-eibsee-desc">Family-friendly + water safety</small></li>
     </ul>
   </section>
 
   <section>
-    <h2>🧠 How to Use</h2>
-    <ol>
+    <h2 id="howto-header">🧠 How to Use</h2>
+    <ol id="howto-list">
       <li>Choose your trail or scan the QR code on your rental kit.</li>
       <li>Each page works offline after first load.</li>
       <li>Tap an injury to learn which items to use and how to treat it.</li>
@@ -31,8 +39,90 @@
   </section>
 
   <section>
-    <h2>🕊️ Safety Reminder</h2>
-    <p>Always let someone know where you're hiking. If in doubt, seek help. This guide is for support, not a replacement for emergency services.</p>
+    <h2 id="reminder-header">🕊️ Safety Reminder</h2>
+    <p id="reminder-text">Always let someone know where you're hiking. If in doubt, seek help. This guide is for support, not a replacement for emergency services.</p>
   </section>
+
+  <section>
+    <h2 id="feedback-header">❤️ Give us Feedback</h2>
+    <p id="feedback-text">We would love to hear back from you. Please fill out this form to help us improve your hiking experience:</p>
+    <ul>
+      <li><a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_cTqYpxhhrEF25Uy" id="feedback-link">Quick Hiking First Aid Survey</a></li>
+    </ul>
+  </section>
+
+  <script>
+    const translations = {
+      en: {
+        title: "MediHike First Aid Kits",
+        subtitle: "Your offline guide to handling common hiking injuries in Germany. Scan a QR code or tap a kit to view.",
+        "kits-header": "📦 Available Kits",
+        "kit-core": "🧰 Core Kit",
+        "kit-core-desc": "Included with every rental",
+        "kit-zugspitze": "🏔️ Zugspitze Kit",
+        "kit-zugspitze-desc": "Alpine terrain + winter hazards",
+        "kit-saxon": "🪨 Saxon Switzerland Kit",
+        "kit-saxon-desc": "Climbs + sandstone cliffs",
+        "kit-eibsee": "🏞️ Eibsee Lake Kit",
+        "kit-eibsee-desc": "Family-friendly + water safety",
+        "howto-header": "🧠 How to Use",
+        "howto-list": [
+          "Choose your trail or scan the QR code on your rental kit.",
+          "Each page works offline after first load.",
+          "Tap an injury to learn which items to use and how to treat it."
+        ],
+        "reminder-header": "🕊️ Safety Reminder",
+        "reminder-text": "Always let someone know where you're hiking. If in doubt, seek help. This guide is for support, not a replacement for emergency services.",
+        "feedback-header": "❤️ Give us Feedback",
+        "feedback-text": "We would love to hear back from you. Please fill out this form to help us improve your hiking experience:",
+        "feedback-link": "Quick Hiking First Aid Survey"
+      },
+      de: {
+        title: "MediHike Erste-Hilfe-Sets",
+        subtitle: "Ihr Offline-Leitfaden für häufige Wanderverletzungen in Deutschland. Scannen Sie einen QR-Code oder wählen Sie ein Set aus.",
+        "kits-header": "📦 Verfügbare Sets",
+        "kit-core": "🧰 Basisset",
+        "kit-core-desc": "In jeder Vermietung enthalten",
+        "kit-zugspitze": "🏔️ Zugspitze-Set",
+        "kit-zugspitze-desc": "Alpines Gelände + Wintergefahren",
+        "kit-saxon": "🪨 Elbsandsteingebirge-Set",
+        "kit-saxon-desc": "Kletterstellen + Sandsteinfelsen",
+        "kit-eibsee": "🏞️ Eibsee-Set",
+        "kit-eibsee-desc": "Familienfreundlich + Wassersicherheit",
+        "howto-header": "🧠 Anleitung",
+        "howto-list": [
+          "Wählen Sie Ihren Wanderweg oder scannen Sie den QR-Code am Set.",
+          "Jede Seite funktioniert offline nach dem ersten Laden.",
+          "Tippen Sie auf eine Verletzung, um Hilfe zu erhalten."
+        ],
+        "reminder-header": "🕊️ Sicherheitshinweis",
+        "reminder-text": "Informieren Sie immer jemanden über Ihre Wanderroute. Im Zweifelsfall holen Sie Hilfe. Dieser Leitfaden ersetzt keine Notfalldienste.",
+        "feedback-header": "❤️ Ihr Feedback",
+        "feedback-text": "Wir freuen uns über Ihre Rückmeldung. Bitte füllen Sie dieses Formular aus, um uns zu helfen:",
+        "feedback-link": "Kurze Erste-Hilfe-Wanderumfrage"
+      }
+    };
+
+    function switchLanguage() {
+      const lang = document.getElementById("language").value;
+      const keys = translations[lang];
+      for (const id in keys) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+
+        if (Array.isArray(keys[id])) {
+          // Handle <ol> lists
+          el.innerHTML = '';
+          keys[id].forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            el.appendChild(li);
+          });
+        } else {
+          el.textContent = keys[id];
+        }
+      }
+    }
+  </script>
 </body>
 </html>
